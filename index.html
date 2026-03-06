@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💌 Chúc Mừng 8/3</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #ff6b9d;
+    --rose: #ff4081;
+    --peach: #ffb3c6;
+    --cream: #fff5f7;
+    --gold: #ffd700;
+    --lavender: #e8b4cb;
+    --deep: #8b2252;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffe0ec 0%, #ffd6e8 30%, #ffb3d1 60%, #ff85b3 100%);
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* FLOATING PETALS */
+  .petals-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .petal {
+    position: absolute;
+    top: -60px;
+    font-size: 1.4rem;
+    animation: fallDown linear infinite;
+    opacity: 0.7;
+  }
+
+  @keyframes fallDown {
+    0% { transform: translateY(-60px) rotate(0deg) translateX(0); opacity: 0.8; }
+    50% { transform: translateY(50vh) rotate(180deg) translateX(40px); }
+    100% { transform: translateY(110vh) rotate(360deg) translateX(-20px); opacity: 0.2; }
+  }
+
+  /* SPARKLES */
+  .sparkle {
+    position: fixed;
+    pointer-events: none;
+    animation: sparkleAnim 1.5s ease-out forwards;
+    z-index: 999;
+    font-size: 1.2rem;
+  }
+  @keyframes sparkleAnim {
+    0% { transform: scale(0) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.5) rotate(180deg); opacity: 1; }
+    100% { transform: scale(0) rotate(360deg) translateY(-40px); opacity: 0; }
+  }
+
+  /* SCREENS */
+  .screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    z-index: 10;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .screen.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* ===== SCREEN 1: INTRO ===== */
+  #screen-intro {
+    background: transparent;
+  }
+
+  .intro-content {
+    text-align: center;
+    animation: introFadeIn 1.5s ease forwards;
+  }
+
+  @keyframes introFadeIn {
+    0% { opacity: 0; transform: scale(0.7) translateY(30px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .intro-badge {
+    background: linear-gradient(135deg, #ff4081, #ff85b3);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(255,64,129,0.4);
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(255,64,129,0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 4px 30px rgba(255,64,129,0.7); }
+  }
+
+  .intro-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    color: #8b2252;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 #ffb3c6, 4px 4px 0 rgba(255,100,150,0.2);
+    animation: titleShimmer 3s ease infinite;
+  }
+
+  @keyframes titleShimmer {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(255,64,129,0.3)); }
+    50% { filter: drop-shadow(0 0 25px rgba(255,64,129,0.6)); }
+  }
+
+  .intro-sub {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: #c0395e;
+    font-weight: 600;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+
+  .intro-emojis {
+    font-size: 2.5rem;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+  }
+
+  .emoji-bounce {
+    display: inline-block;
+    animation: bounceFun 1.5s ease infinite;
+  }
+  .emoji-bounce:nth-child(2) { animation-delay: 0.2s; }
+  .emoji-bounce:nth-child(3) { animation-delay: 0.4s; }
+  .emoji-bounce:nth-child(4) { animation-delay: 0.6s; }
+  .emoji-bounce:nth-child(5) { animation-delay: 0.8s; }
+
+  @keyframes bounceFun {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(8deg); }
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #ff4081, #ff85b3);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(255,64,129,0.5), 0 2px 0 rgba(139,34,82,0.3);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(255,64,129,0.6);
+  }
+
+  .btn-primary:hover::before { opacity: 1; }
+  .btn-primary:active { transform: translateY(0); }
+
+  /* ===== SCREEN 2: ENVELOPE ===== */
+  #screen-envelope {
+    background: transparent;
+  }
+
+  .envelope-wrapper {
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .envelope {
+    width: min(340px, 90vw);
+    height: min(240px, 65vw);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+
+  .envelope:hover { transform: scale(1.03) rotateY(-3deg); }
+
+  /* Envelope body */
+  .env-body {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #fff0f5, #ffe4ee);
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(255,64,129,0.3), 0 4px 15px rgba(255,64,129,0.2);
+    overflow: hidden;
+    border: 2px solid #ffc0d5;
+  }
+
+  .env-body::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(to top, #ffd6e7, transparent);
+  }
+
+  /* Envelope fold lines */
+  .env-fold-left {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 50%;
+    background: linear-gradient(135deg, #ffc5d8, #ffe0ec);
+    clip-path: polygon(0 0, 100% 30%, 100% 70%, 0 100%);
+    border-right: 1px solid #ffaace;
+  }
+
+  .env-fold-right {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 50%;
+    background: linear-gradient(225deg, #ffc5d8, #ffe0ec);
+    clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 70%);
+    border-left: 1px solid #ffaace;
+  }
+
+  /* Envelope flap */
+  .env-flap {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(160deg, #ffb3cc, #ff85b3);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .env-flap.opened {
+    transform: rotateX(180deg);
+  }
+
+  /* Envelope seal */
+  .env-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #ff4081, #c62a6a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(255,64,129,0.5), inset 0 2px 4px rgba(255,255,255,0.3);
+    z-index: 6;
+    border: 3px solid #ffb3c6;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: sealPulse 2s ease infinite;
+  }
+
+  @keyframes sealPulse {
+    0%, 100% { box-shadow: 0 4px 15px rgba(255,64,129,0.5), 0 0 0 0 rgba(255,64,129,0.4); }
+    50% { box-shadow: 0 4px 25px rgba(255,64,129,0.7), 0 0 0 8px rgba(255,64,129,0); }
+  }
+
+  .env-seal:hover { transform: translate(-50%, -50%) scale(1.1) rotate(10deg); }
+
+  /* Letter peeking out */
+  .letter-peek {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 60%;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 -4px 10px rgba(255,64,129,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #ffb3c6;
+    z-index: 3;
+    transition: transform 0.5s ease;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: #ff85b3;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .letter-peek.slide-up {
+    transform: translateX(-50%) translateY(-30px);
+  }
+
+  .envelope-hint {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #c0395e;
+    font-weight: 600;
+    animation: hintBlink 2s ease infinite;
+  }
+
+  @keyframes hintBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .envelope-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #8b2252;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 0 #ffb3c6;
+  }
+
+  /* ===== SCREEN 3: LETTER CONTENT ===== */
+  #screen-letter {
+    background: transparent;
+    overflow-y: auto;
+  }
+
+  .letter-card {
+    background: white;
+    border-radius: 20px;
+    padding: clamp(25px, 5vw, 45px);
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(255,64,129,0.25), 0 4px 15px rgba(255,100,150,0.15);
+    position: relative;
+    overflow: hidden;
+    animation: letterAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    border: 2px solid #ffe4ee;
+  }
+
+  @keyframes letterAppear {
+    from { transform: scale(0.7) translateY(50px) rotate(-3deg); opacity: 0; }
+    to { transform: scale(1) translateY(0) rotate(0deg); opacity: 1; }
+  }
+
+  .letter-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ff4081, #ff85b3, #ffb3c6, #ff85b3, #ff4081);
+    background-size: 200%;
+    animation: shimmerBar 3s linear infinite;
+  }
+
+  @keyframes shimmerBar {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+  }
+
+  .letter-deco-top {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .letter-heading {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    color: #8b2252;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .letter-body {
+    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    color: #5a2a3a;
+    line-height: 1.9;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .letter-body em {
+    font-style: normal;
+    color: #ff4081;
+    font-weight: 700;
+  }
+
+  .letter-divider {
+    text-align: center;
+    font-size: 1.4rem;
+    letter-spacing: 5px;
+    color: #ffb3c6;
+    margin: 20px 0;
+  }
+
+  /* ===== SCREEN 4: QUIZ ===== */
+  #screen-quiz {
+    background: transparent;
+    overflow-y: auto;
+  }
+
+  .quiz-card {
+    background: white;
+    border-radius: 20px;
+    padding: clamp(20px, 4vw, 35px);
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(255,64,129,0.25);
+    border: 2px solid #ffe4ee;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quiz-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ff4081, #ffd700, #ff4081);
+    background-size: 200%;
+    animation: shimmerBar 2s linear infinite;
+  }
+
+  .quiz-progress {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffd0e0;
+    transition: all 0.3s ease;
+  }
+
+  .progress-dot.active {
+    background: linear-gradient(135deg, #ff4081, #ff85b3);
+    box-shadow: 0 0 10px rgba(255,64,129,0.5);
+    transform: scale(1.3);
+  }
+
+  .progress-dot.done {
+    background: linear-gradient(135deg, #ff85b3, #ffb3c6);
+  }
+
+  .quiz-number {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ff4081;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .quiz-question {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: #5a2a3a;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    min-height: 60px;
+  }
+
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .quiz-option {
+    background: #fff5f8;
+    border: 2px solid #ffd0e0;
+    border-radius: 14px;
+    padding: 14px 18px;
+    cursor: pointer;
+    font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: #5a2a3a;
+    text-align: left;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quiz-option::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,64,129,0.1), rgba(255,133,179,0.05));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .quiz-option:hover {
+    border-color: #ff85b3;
+    transform: translateX(4px);
+    box-shadow: -4px 0 0 #ff85b3, 0 4px 15px rgba(255,64,129,0.15);
+  }
+
+  .quiz-option:hover::before { opacity: 1; }
+
+  .quiz-option.correct {
+    background: linear-gradient(135deg, #fff0f5, #ffe4ee);
+    border-color: #ff4081;
+    animation: correctPop 0.5s ease forwards;
+  }
+
+  .quiz-option.wrong {
+    background: #fff0f0;
+    border-color: #ffb3b3;
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @keyframes correctPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+  }
+
+  .option-emoji {
+    margin-right: 8px;
+    font-size: 1.1rem;
+  }
+
+  /* ===== SCREEN 5: WIN ===== */
+  #screen-win {
+    background: transparent;
+    overflow-y: auto;
+  }
+
+  .win-card {
+    background: white;
+    border-radius: 25px;
+    padding: clamp(25px, 5vw, 45px);
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 25px 70px rgba(255,64,129,0.3);
+    border: 3px solid #ff85b3;
+    position: relative;
+    overflow: hidden;
+    animation: winAppear 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    text-align: center;
+  }
+
+  @keyframes winAppear {
+    from { transform: scale(0.5) rotate(-5deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .win-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #ff4081, #ffd700, #ff85b3, #ffd700, #ff4081);
+    background-size: 300%;
+    animation: shimmerBar 2s linear infinite;
+  }
+
+  .confetti-emoji {
+    font-size: 3rem;
+    animation: confettiBounce 1s ease infinite;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  @keyframes confettiBounce {
+    0%, 100% { transform: translateY(0) rotate(-10deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+  }
+
+  .win-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: #ff4081;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    text-shadow: 2px 2px 0 #ffb3c6;
+  }
+
+  .win-message {
+    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    color: #5a2a3a;
+    line-height: 2;
+    font-weight: 500;
+  }
+
+  .win-message strong {
+    color: #ff4081;
+    font-weight: 800;
+  }
+
+  .win-heart-row {
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin: 20px 0;
+    animation: heartPulse 1.5s ease infinite;
+  }
+
+  @keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  .run-btn {
+    background: linear-gradient(135deg, #ff4081, #c62a6a);
+    color: white;
+    border: none;
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(255,64,129,0.5);
+    transition: all 0.2s ease;
+    margin-top: 20px;
+    animation: runBtnPulse 2s ease infinite;
+    letter-spacing: 0.5px;
+  }
+
+  @keyframes runBtnPulse {
+    0%, 100% { box-shadow: 0 8px 30px rgba(255,64,129,0.5), 0 0 0 0 rgba(255,64,129,0.3); }
+    50% { box-shadow: 0 8px 40px rgba(255,64,129,0.7), 0 0 0 10px rgba(255,64,129,0); }
+  }
+
+  .run-btn:hover { transform: translateY(-3px) scale(1.05); }
+
+.back-home-btn {
+  margin-top: 15px;
+  background: transparent;
+  border: none;
+  color: #ff4081;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: 'Nunito', sans-serif;
+}
+
+  /* Feedback overlay */
+  .feedback-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,64,129,0.15);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .feedback-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .feedback-box {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 35px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(255,64,129,0.3);
+    animation: feedbackPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-width: 320px;
+    width: 90%;
+  }
+
+  @keyframes feedbackPop {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .feedback-emoji { font-size: 3rem; margin-bottom: 10px; display: block; }
+  .feedback-text { font-size: 1.1rem; color: #5a2a3a; font-weight: 700; margin-bottom: 15px; }
+  .feedback-hint { font-size: 0.9rem; color: #ff85b3; }
+
+  .feedback-btn {
+    background: linear-gradient(135deg, #ff4081, #ff85b3);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.2s;
+  }
+  .feedback-btn:hover { transform: scale(1.05); }
+
+  /* Transition overlay */
+  .transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff4081, #ff85b3);
+    z-index: 200;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    pointer-events: none;
+  }
+
+  .transition-overlay.in {
+    animation: overlayIn 0.4s ease forwards;
+  }
+  .transition-overlay.out {
+    animation: overlayOut 0.4s ease forwards;
+    transform-origin: top;
+  }
+
+  @keyframes overlayIn {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  @keyframes overlayOut {
+    from { transform: scaleY(1); }
+    to { transform: scaleY(0); }
+  }
+
+  /* Scroll hint */
+  .scroll-hint {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: rgba(192,57,94,0.6);
+  }
+</style>
+</head>
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" src="song.mp3" loop autoplay></audio>
+
+<!-- PETALS BACKGROUND -->
+<div class="petals-container" id="petals"></div>
+
+<!-- TRANSITION OVERLAY -->
+<div class="transition-overlay" id="transition"></div>
+
+<!-- FEEDBACK OVERLAY -->
+<div class="feedback-overlay" id="feedbackOverlay">
+  <div class="feedback-box">
+    <span class="feedback-emoji" id="feedbackEmoji">😅</span>
+    <div class="feedback-text" id="feedbackText">Ủa không phải rồi nè!</div>
+    <div class="feedback-hint" id="feedbackHint">Thử lại nha~</div>
+    <button class="feedback-btn" onclick="closeFeedback()">Thử lại 💪</button>
+  </div>
+</div>
+
+<!-- ===== SCREEN 1: INTRO ===== -->
+<div class="screen active" id="screen-intro">
+  <div class="intro-content">
+    <div class="intro-badge">✿ 08 tháng 03 ✿</div>
+    <h1 class="intro-title">Phương ơi~<br>Có thư nè! 💌</h1>
+    <p class="intro-sub">Chúc Phương có một ngày 8/3<br>thật vui và ngập tràn yêu thương 🌸</p>
+    <div class="intro-emojis">
+      <span class="emoji-bounce">🌹</span>
+      <span class="emoji-bounce">💕</span>
+      <span class="emoji-bounce">🎀</span>
+      <span class="emoji-bounce">✨</span>
+      <span class="emoji-bounce">🌸</span>
+    </div>
+    <button class="btn-primary" onclick="startExperience()">
+      Mở thư nào 💌
+    </button>
+  </div>
+</div>
+
+<!-- ===== SCREEN 2: ENVELOPE ===== -->
+<div class="screen" id="screen-envelope">
+  <div class="envelope-title">✉️ Thư của Bin gửi Phương~</div>
+  <div class="envelope-wrapper" onclick="openEnvelope()">
+    <div class="envelope" id="envelope">
+      <div class="env-body">
+        <div class="env-fold-left"></div>
+        <div class="env-fold-right"></div>
+        <div class="letter-peek" id="letterPeek">
+          Có thứ gì đó<br>đang chờ... 🌸
+        </div>
+      </div>
+      <div class="env-flap" id="envFlap"></div>
+      <div class="env-seal" id="envSeal">💝</div>
+    </div>
+  </div>
+  <div class="envelope-hint" id="envelopeHint">👆 Nhấn vào phong bì để mở nha!</div>
+</div>
+
+<!-- ===== SCREEN 3: LETTER ===== -->
+<div class="screen" id="screen-letter">
+  <div class="letter-card">
+    <div class="letter-deco-top">
+      <span>🌸</span><span>💌</span><span>🌸</span>
+    </div>
+    <h2 class="letter-heading">Phương thân mến~</h2>
+    <div class="letter-divider">· · · ♡ · · ·</div>
+    <p class="letter-body">
+      Cảm ơn Phương vì đã để <em>Bin</em> được bước vào thế giới của Phương, được làm quen và hiểu thêm về Phương mỗi ngày. 🥰
+      <br><br>
+      Thú thật là có vài món quà Bin đã muốn tặng Phương từ lâu rồi, nhưng cứ đợi mãi một cái cớ thật <em>"hợp lòng người"</em>.
+      <br><br>
+      Nhân dịp mai là <em>8/3</em>, mình cùng chơi một trò chơi nhỏ với <em>3 câu đố vui</em> của Bin để lật tung phần quà bí mật nha! 🎁
+    </p>
+    <div class="letter-divider">· · · ♡ · · ·</div>
+    <div style="text-align:center; font-size: 1.4rem; margin-bottom: 20px;">🎮 ✨ 🎁</div>
+    <div style="text-align:center;">
+      <button class="btn-primary" onclick="goTo('screen-quiz'); initQuiz()">
+        Bắt đầu thử thách! 🎯
+      </button>
+    </div>
+  </div>
+  <div class="scroll-hint">Vuốt lên nếu chưa đọc hết nhé~ 👆</div>
+</div>
+
+<!-- ===== SCREEN 4: QUIZ ===== -->
+<div class="screen" id="screen-quiz">
+  <div class="quiz-card">
+    <div class="quiz-progress" id="quizProgress">
+      <div class="progress-dot active" id="dot-0"></div>
+      <div class="progress-dot" id="dot-1"></div>
+      <div class="progress-dot" id="dot-2"></div>
+    </div>
+    <div class="quiz-number" id="quizNumber">Câu hỏi 1 / 3</div>
+    <div class="quiz-question" id="quizQuestion"></div>
+    <div class="quiz-options" id="quizOptions"></div>
+  </div>
+</div>
+
+<!-- ===== SCREEN 5: WIN ===== -->
+<div class="screen" id="screen-win">
+  <div class="win-card">
+    <span class="confetti-emoji">🎉</span>
+    <h2 class="win-title">Tèn tén ten!<br>Thử thách kết thúc rồi! 🏆</h2>
+    <div class="win-heart-row">💕 💕 💕</div>
+    <p class="win-message">
+      Bin không muốn tặng quà qua màn hình điện thoại <strong>khô khan</strong> đâu.<br><br>
+      Bin muốn được nhìn thấy <strong>nụ cười trực tiếp</strong> của Phương ngay lúc này. 🥹<br><br>
+      <strong>Bất ngờ xuất hiện rồi nè!</strong> Món quà đang đợi Phương <strong>ngay trước cổng</strong>, đúng chỗ hôm trước Phương gửi địa chỉ cho Bin á. 📍<br><br>
+      Phương chạy ra <strong>nhanh nhanh</strong> nhé, không anh shipper đứng đợi nãy giờ tội nghiệp ảnh, ảnh bắt đầu <em style="color:#ff4081">than mỏi chân</em> với Bin rồi đây này! 😂
+    </p>
+    <div class="win-heart-row">🌹 💖 🌹</div>
+    <button class="run-btn" onclick="createConfettiBurst()">
+      🏃‍♀️ Chạy ra ngay! 🎁
+    </button>
+    <button class="back-home-btn" onclick="goTo('screen-intro')">
+      ← Quay về trang chính
+    </button>
+  </div>
+</div>
+
+<script>
+// ===== BACKGROUND MUSIC =====
+const bgMusic = document.getElementById('bgMusic');
+let musicStarted = false;
+
+function playMusic() {
+  if (!bgMusic) return;
+  const playPromise = bgMusic.play();
+  if (playPromise && typeof playPromise.then === 'function') {
+    playPromise.then(() => {
+      musicStarted = true;
+    }).catch(() => {
+      // autoplay có thể bị chặn, bỏ qua
+    });
+  } else {
+    musicStarted = true;
+  }
+}
+
+// cố gắng phát nhạc ngay khi load trang
+window.addEventListener('load', () => {
+  if (!musicStarted) {
+    playMusic();
+  }
+});
+
+function startExperience() {
+  if (!musicStarted) {
+    playMusic();
+  }
+  goTo('screen-envelope');
+}
+
+// ===== PETALS =====
+const petalEmojis = ['🌸', '🌺', '💮', '🌹', '💐', '✿', '❋', '🌷'];
+function createPetal() {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+  p.style.animationDuration = (5 + Math.random() * 8) + 's';
+  p.style.animationDelay = (Math.random() * 5) + 's';
+  p.style.opacity = 0.4 + Math.random() * 0.4;
+  document.getElementById('petals').appendChild(p);
+  setTimeout(() => p.remove(), 15000);
+}
+setInterval(createPetal, 600);
+for(let i = 0; i < 8; i++) setTimeout(createPetal, i * 300);
+
+// ===== SPARKLE ON CLICK & START MUSIC ON FIRST TAP =====
+document.addEventListener('click', (e) => {
+  if (!musicStarted) {
+    playMusic();
+  }
+  const emojis = ['✨', '💫', '⭐', '🌟', '💕', '🌸'];
+  for(let i = 0; i < 4; i++) {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    s.style.left = (e.clientX + (Math.random()-0.5)*60) + 'px';
+    s.style.top = (e.clientY + (Math.random()-0.5)*60) + 'px';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1500);
+  }
+});
+
+// ===== SCREEN NAVIGATION =====
+function goTo(screenId) {
+  const overlay = document.getElementById('transition');
+  overlay.className = 'transition-overlay in';
+  setTimeout(() => {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(screenId).classList.add('active');
+    overlay.className = 'transition-overlay out';
+    setTimeout(() => overlay.className = 'transition-overlay', 400);
+  }, 400);
+}
+
+// ===== ENVELOPE =====
+let envelopeOpened = false;
+function openEnvelope() {
+  if (envelopeOpened) return;
+  envelopeOpened = true;
+
+  const flap = document.getElementById('envFlap');
+  const seal = document.getElementById('envSeal');
+  const peek = document.getElementById('letterPeek');
+  const hint = document.getElementById('envelopeHint');
+
+  seal.style.transform = 'translate(-50%, -50%) scale(0)';
+  seal.style.transition = 'transform 0.3s ease';
+
+  setTimeout(() => {
+    flap.classList.add('opened');
+    peek.classList.add('slide-up');
+    peek.innerHTML = '💌 Thư của Bin~';
+    hint.textContent = '💕 Đang mở ra...';
+  }, 300);
+
+  setTimeout(() => {
+    goTo('screen-letter');
+    envelopeOpened = false;
+  }, 1200);
+}
+
+// ===== QUIZ DATA =====
+const quizData = [
+  {
+    q: "Để bắt đầu 'giải mã' món quà, Phương hãy xác nhận âm thanh nào dưới đây nghe giống một chú mèo đang đòi ăn nhất? 🐱",
+    opts: [
+      { text: "🐶 Gâu gâu", correct: false, wrongMsg: "Hm đó là chó rồi nè Phương ơi! 🐶", hint: "Thử nghĩ lại xem~" },
+      { text: "🦆 Cạp cạp", correct: false, wrongMsg: "Đó là vịt kêu bạn ơi! 🦆", hint: "Mèo không kêu vậy đâu nha~" },
+      { text: "😺 Mewww...", correct: true }
+    ]
+  },
+  {
+    q: "Phương có tin vào 'thần giao cách cảm' không? 🔮 Thử đoán xem lúc này Bin đang ở đâu và món quà của Bin đang ở đâu nhỉ?",
+    opts: [
+      { text: "📬 Ở một nơi xa lắm, gửi qua bưu điện thôi.", correct: false, wrongMsg: "Xa thật không? Hmmm... 🤔", hint: "Thử cảm nhận xung quanh xem~" },
+      { text: "💭 Đang nằm trong suy nghĩ của Bin.", correct: false, wrongMsg: "Triết học quá! Nhưng không phải rồi 😄", hint: "Cụ thể hơn một chút nha~" },
+      { text: "📍 Có thể là... đang ở rất gần Phương, chỉ cách vài bước chân thôi đó!", correct: true }
+    ]
+  },
+  {
+    q: "Để 'kích hoạt' món quà bất ngờ này hiện hình ngay lập tức, Phương cần làm gì tiếp theo? 🎁",
+    opts: [
+      { text: "🛋️ Ngồi im chờ đợi điều kỳ diệu.", correct: false, wrongMsg: "Không có điều kỳ diệu nào tự đến đâu nha! 😄", hint: "Phải hành động thôi~" },
+      { text: "💬 Nhắn tin hỏi Bin xem quà đâu.", correct: false, wrongMsg: "Khỏi nhắn, Phương biết rồi đó! 😏", hint: "Đáp án nằm ở chân Phương đó~" },
+      { text: "🚪 Đứng dậy, đi ra cửa!", correct: true }
+    ]
+  }
+];
+
+let currentQ = 0;
+
+function initQuiz() {
+  currentQ = 0;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = quizData[currentQ];
+  document.getElementById('quizNumber').textContent = `Câu hỏi ${currentQ + 1} / 3`;
+  document.getElementById('quizQuestion').textContent = q.q;
+
+  // Update dots
+  for(let i = 0; i < 3; i++) {
+    const dot = document.getElementById('dot-' + i);
+    dot.className = 'progress-dot';
+    if(i < currentQ) dot.classList.add('done');
+    else if(i === currentQ) dot.classList.add('active');
+  }
+
+  const optContainer = document.getElementById('quizOptions');
+  optContainer.innerHTML = '';
+  q.opts.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-option';
+    btn.innerHTML = `<span class="option-emoji">${idx === 0 ? '①' : idx === 1 ? '②' : '③'}</span> ${opt.text}`;
+    btn.onclick = () => selectOption(idx, btn);
+    optContainer.appendChild(btn);
+  });
+}
+
+function selectOption(idx, btn) {
+  const q = quizData[currentQ];
+  const opt = q.opts[idx];
+
+  if(opt.correct) {
+    btn.classList.add('correct');
+    // Disable all options
+    document.querySelectorAll('.quiz-option').forEach(b => b.onclick = null);
+    setTimeout(() => {
+      if(currentQ < 2) {
+        currentQ++;
+        goTo('screen-quiz');
+        setTimeout(renderQuestion, 500);
+      } else {
+        goTo('screen-win');
+        setTimeout(createConfettiBurst, 800);
+      }
+    }, 700);
+  } else {
+    // Show wrong feedback
+    btn.classList.add('wrong');
+    btn.onclick = null;
+    showFeedback(opt.wrongMsg, opt.hint);
+  }
+}
+
+function showFeedback(msg, hint) {
+  document.getElementById('feedbackEmoji').textContent = ['😅', '🙈', '😂'][Math.floor(Math.random()*3)];
+  document.getElementById('feedbackText').textContent = msg;
+  document.getElementById('feedbackHint').textContent = hint;
+  document.getElementById('feedbackOverlay').classList.add('show');
+}
+
+function closeFeedback() {
+  document.getElementById('feedbackOverlay').classList.remove('show');
+  // Re-enable remaining options
+  document.querySelectorAll('.quiz-option:not(.wrong)').forEach(b => {
+    const idx = Array.from(b.parentNode.children).indexOf(b);
+    b.onclick = () => selectOption(idx, b);
+  });
+}
+
+// ===== CONFETTI BURST =====
+function createConfettiBurst() {
+  const emojis = ['🎉', '✨', '💕', '🌸', '🎊', '💖', '🌹', '⭐', '🎁', '🏆'];
+  for(let i = 0; i < 20; i++) {
+    setTimeout(() => {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      s.style.left = Math.random() * window.innerWidth + 'px';
+      s.style.top = Math.random() * window.innerHeight * 0.7 + 'px';
+      s.style.fontSize = (1 + Math.random() * 2) + 'rem';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 1500);
+    }, i * 80);
+  }
+}
+</script>
+</body>
+</html>
